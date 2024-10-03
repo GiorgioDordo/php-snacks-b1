@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <?php
+<?php
 
 $posts = [
 
@@ -50,6 +40,37 @@ $posts = [
     ],
 ];
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <?php foreach ($posts as $postDate => $postInDate) { ?>
+    <h4>Data: <?= $postDate ?> </h4>
+    <main>
+        <ul>
+            <?php foreach ($postInDate as $singlePost) { ?>
+            <li>
+                <h5>
+                    <?= $singlePost["title"]; ?>
+                </h5>
+                <p>
+                    <strong>Scritto da: <?= $singlePost["author"]; ?> </strong>
+                </p>
+                <p>
+                    <strong>Testo: <?= $singlePost["text"]; ?> </strong>
+                </p>
+            </li>
+            <?php } ?>
+        </ul>
+    </main>
+    <?php } ?>
 </body>
 
 </html>
