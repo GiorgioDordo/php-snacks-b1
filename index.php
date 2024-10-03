@@ -52,24 +52,24 @@ $posts = [
 
 <body>
     <?php foreach ($posts as $postDate => $postInDate) { ?>
-    <h4>Data: <?= $postDate ?> </h4>
-    <main>
-        <ul>
-            <?php foreach ($postInDate as $singlePost) { ?>
-            <li>
-                <h5>
-                    <?= $singlePost["title"]; ?>
-                </h5>
-                <p>
-                    <strong>Scritto da: <?= $singlePost["author"]; ?> </strong>
-                </p>
-                <p>
-                    <strong>Testo: <?= $singlePost["text"]; ?> </strong>
-                </p>
-            </li>
-            <?php } ?>
-        </ul>
-    </main>
+        <h4>Data: <?= $postDate ?> </h4>
+        <main>
+            <ul>
+                <?php foreach ($postInDate as $singlePost) { ?>
+                    <li>
+                        <h5>
+                            <?= $singlePost["title"]; ?>
+                        </h5>
+                        <p>
+                            <strong>Scritto da: <?= $singlePost["author"]; ?> </strong>
+                        </p>
+                        <p>
+                            <strong>Testo: <?= $singlePost["text"]; ?> </strong>
+                        </p>
+                    </li>
+                <?php } ?>
+            </ul>
+        </main>
     <?php } ?>
 </body>
 
