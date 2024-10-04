@@ -247,10 +247,34 @@ $classi = [
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body>
-
+    <main>
+        <div>
+            <?php foreach ($classi as $singleClass =>  $inSingleClass) { ?>
+                <ul>
+                    <h1><?= $singleClass ?></h1>
+                    <?php foreach ($inSingleClass as $singleClass) { ?>
+                        <li>
+                            <p><strong>ID:</strong><?= $singleClass["id"] ?></p>
+                            <p><strong>NOME:</strong><?= $singleClass["nome"] ?></p>
+                            <p><strong>COGNOME:</strong><?= $singleClass["cognome"] ?></p>
+                            <p><strong>ANNI:</strong><?= $singleClass["anni"] ?></p>
+                            <p><strong>VOTO MEDIO:</strong><?= $singleClass["voto_medio"] ?></p>
+                            <p><strong>LINGUAGGIO PREFERITO:</strong><?= $singleClass["linguaggio_preferito"] ?></p>
+                            <div>
+                                <img class="img'fluid" src="https://source.unsplash.com/random/200x200?person"
+                                    alt="randomPerson">
+                            </div>
+                        </li>
+                    <?php } ?>
+                </ul>
+            <?php } ?>
+        </div>
+    </main>
 </body>
 
 </html>
