@@ -255,23 +255,47 @@ $classi = [
     <main>
         <div>
             <?php foreach ($classi as $singleClass =>  $inSingleClass) { ?>
-                <ul>
-                    <h1><?= $singleClass ?></h1>
-                    <?php foreach ($inSingleClass as $singleClass) { ?>
-                        <li>
-                            <p><strong>ID:</strong><?= $singleClass["id"] ?></p>
-                            <p><strong>NOME:</strong><?= $singleClass["nome"] ?></p>
-                            <p><strong>COGNOME:</strong><?= $singleClass["cognome"] ?></p>
-                            <p><strong>ANNI:</strong><?= $singleClass["anni"] ?></p>
-                            <p><strong>VOTO MEDIO:</strong><?= $singleClass["voto_medio"] ?></p>
-                            <p><strong>LINGUAGGIO PREFERITO:</strong><?= $singleClass["linguaggio_preferito"] ?></p>
-                            <div>
-                                <img class="img'fluid" src="https://source.unsplash.com/random/200x200?person"
-                                    alt="randomPerson">
-                            </div>
-                        </li>
-                    <?php } ?>
-                </ul>
+            <ul>
+                <h1><?= $singleClass ?></h1>
+                <?php foreach ($inSingleClass as $singleClass) { ?>
+                <li>
+                    <p><strong>ID:</strong><?= $singleClass["id"] ?></p>
+                    <p><strong>NOME:</strong><?= $singleClass["nome"] ?></p>
+                    <p><strong>COGNOME:</strong><?= $singleClass["cognome"] ?></p>
+                    <p><strong>ANNI:</strong><?= $singleClass["anni"] ?></p>
+                    <p><strong>VOTO MEDIO:</strong><?= $singleClass["voto_medio"] ?></p>
+                    <p><strong>LINGUAGGIO PREFERITO:</strong><?= $singleClass["linguaggio_preferito"] ?></p>
+                    <div>
+                        <img class="img'fluid" src="https://source.unsplash.com/random/200x200?person"
+                            alt="randomPerson">
+                    </div>
+                </li>
+                <?php } ?>
+            </ul>
+            <?php } ?>
+        </div>
+
+        <div class="container m-auto row">
+            <?php foreach ($classi as $singleClass =>  $inSingleClass) { ?>
+            <div class="text-center">
+                <h1><?= $singleClass ?></h1>
+            </div>
+            <?php foreach ($inSingleClass as $singleClass) { ?>
+            <div class="col d-flex justify-content-center mb-5">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://robohash.org/ <?= $singleClass["nome"] ?>"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <p><strong>ID:</strong><?= $singleClass["id"] ?></p>
+                        <p><strong>NOME:</strong><?= $singleClass["nome"] ?></p>
+                        <p><strong>COGNOME:</strong><?= $singleClass["cognome"] ?></p>
+                        <p><strong>ANNI:</strong><?= $singleClass["anni"] ?></p>
+                        <p><strong>VOTO MEDIO:</strong><?= $singleClass["voto_medio"] ?></p>
+                        <p><strong>LINGUAGGIO PREFERITO:</strong><?= $singleClass["linguaggio_preferito"] ?></p>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
             <?php } ?>
         </div>
     </main>
