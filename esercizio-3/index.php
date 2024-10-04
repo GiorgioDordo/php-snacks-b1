@@ -41,23 +41,23 @@ $db = [
 
         <div class="row">
             <div class="col bg-secondary">
+                <h1>Teacher</h1>
                 <?php foreach ($db["teachers"] as $teacher) { ?>
-                <ul>
-                    <h1>Teacher</h1>
-                    <li class="list-unstyled">
-                        <p><?php echo $teacher["name"] . " " . $teacher["lastname"] ?></p>
-                    </li>
-                </ul>
+                    <ul>
+                        <li class="list-unstyled">
+                            <p><?php echo $teacher["name"] . " " . $teacher["lastname"] ?></p>
+                        </li>
+                    </ul>
                 <?php } ?>
             </div>
             <div class="col bg-success">
+                <h1>PM</h1>
                 <?php foreach ($db["pm"] as $pm) { ?>
-                <ul>
-                    <h1>PM</h1>
-                    <li class="list-unstyled">
-                        <p><?php echo $pm["name"] . " " . $pm["lastname"] ?></p>
-                    </li>
-                </ul>
+                    <ul>
+                        <li class="list-unstyled">
+                            <p><?php echo $pm["name"] . " " . $pm["lastname"] ?></p>
+                        </li>
+                    </ul>
                 <?php } ?>
             </div>
         </div>
