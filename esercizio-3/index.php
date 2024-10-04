@@ -40,24 +40,22 @@ $db = [
     <div class="container">
 
         <div class="row">
-            <div class="col">
+            <div class="col bg-secondary">
                 <?php foreach ($db["teachers"] as $teacher) { ?>
                 <ul>
                     <h1>Teacher</h1>
                     <li class="list-unstyled">
-                        <p><?php echo $teacher["name"] ?></p>
-                        <p><?php echo $teacher["lastname"] ?></p>
+                        <p><?php echo $teacher["name"] . " " . $teacher["lastname"] ?></p>
                     </li>
                 </ul>
                 <?php } ?>
             </div>
-            <div class="col">
+            <div class="col bg-success">
                 <?php foreach ($db["pm"] as $pm) { ?>
                 <ul>
-                    <h1>Teacher</h1>
+                    <h1>PM</h1>
                     <li class="list-unstyled">
-                        <p><?php echo $pm["name"] ?></p>
-                        <p><?php echo $pm["lastname"] ?></p>
+                        <p><?php echo $pm["name"] . " " . $pm["lastname"] ?></p>
                     </li>
                 </ul>
                 <?php } ?>
