@@ -41,17 +41,29 @@ $db = [
 
         <div class="row">
             <div class="col">
+                <?php foreach ($db["teachers"] as $teacher) { ?>
                 <ul>
-                    <?php foreach ($db["teachers"] as $teacher) { ?>
-                        <li>
-                            <p><?php echo $teacher["name"] ?></p>
-                            <p><?php echo $teacher["lastname"] ?></p>
-                        </li>
-                    <?php } ?>
+                    <h1>Teacher</h1>
+                    <li class="list-unstyled">
+                        <p><?php echo $teacher["name"] ?></p>
+                        <p><?php echo $teacher["lastname"] ?></p>
+                    </li>
                 </ul>
+                <?php } ?>
             </div>
-            <div class="col"></div>
+            <div class="col">
+                <?php foreach ($db["pm"] as $pm) { ?>
+                <ul>
+                    <h1>Teacher</h1>
+                    <li class="list-unstyled">
+                        <p><?php echo $pm["name"] ?></p>
+                        <p><?php echo $pm["lastname"] ?></p>
+                    </li>
+                </ul>
+                <?php } ?>
+            </div>
         </div>
+    </div>
     </div>
 </body>
 
