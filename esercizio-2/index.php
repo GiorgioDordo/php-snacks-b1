@@ -19,13 +19,13 @@
                 </div>
 
                 <div class="col-6 mb-3">
-                    <label for="laName" class="form-label">Cognome</label>
-                    <input type="text" class="form-control" id="laName" name="lastName" placeholder="Cognome">
+                    <label for="e-mail" class="form-label">email</label>
+                    <input type="email" class="form-control" id="e-mail" name="emails" placeholder="email">
                 </div>
 
                 <div class="col-6 mb-3">
                     <label for="Age" class="form-label">Eta</label>
-                    <input type="text" class="form-control" id="Age" name="lastName" placeholder="Eta">
+                    <input type="text" class="form-control" id="Age" name="ageValue" placeholder="Eta">
                 </div>
 
                 <div class="col-6 mb-3">
