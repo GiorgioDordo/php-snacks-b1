@@ -238,6 +238,27 @@ $classi = [
     ],
 ];
 
+$filteredClasses;
+
+if (isset($_GET["linguaggio"]) && !empty($_GET["linguaggio"])) {
+    $filteredClasses = [];
+
+    foreach ($classi as $singleClass => $filteredClasses) {
+        foreach ($filteredClasses as $singleClass) {
+            if (str_contains(strtolower($singleClass["linguaggio_preferito"]), strtolower($_GET["linguaggio"]))) {
+                $filteredClasses[] = $singleClass;
+            }
+        }
+    }
+} else {
+    $filteredClasses = $classi;
+}
+
+$averageVote = array_filter($classi["Classe 1A"], function ($positive) {
+    return $positive["voto_medio"] > 6;
+});
+
+print_r($averageVote);
 ?>
 
 <!DOCTYPE html>
@@ -254,27 +275,39 @@ $classi = [
 
 <body>
     <main>
-        <div class="container-fluid d-flex justify-content-center gap-1 m-auto row ">
-            <?php foreach ($classi as $singleClass =>  $inSingleClass) { ?>
-            <div class="text-center">
-                <h1><?= $singleClass ?></h1>
-            </div>
-            <?php foreach ($inSingleClass as $singleClass) { ?>
-            <div class="col-2 mb-5">
-                <div class="card" style="max-width: 17rem;">
-                    <img class="card-img-top" src="https://robohash.org/ <?= $singleClass["nome"] ?>"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <p><strong>ID:</strong><?= $singleClass["id"] ?></p>
-                        <p><strong>NOME:</strong><?= $singleClass["nome"] ?></p>
-                        <p><strong>COGNOME:</strong><?= $singleClass["cognome"] ?></p>
-                        <p><strong>ANNI:</strong><?= $singleClass["anni"] ?></p>
-                        <p><strong>VOTO MEDIO:</strong><?= $singleClass["voto_medio"] ?></p>
-                        <p><strong>LINGUAGGIO PREFERITO:</strong><?= $singleClass["linguaggio_preferito"] ?></p>
-                    </div>
+        <div class="container mb-5">
+            <form action="index.php" method="GET">
+                <div class="mb-1">
+                    <span>Linguaggio di programmazione</span>
+                    <input class="form-control" type="text" id="linguaggio" name="linguaggio">
                 </div>
-            </div>
-            <?php } ?>
+                <div>
+                    <button type="submit" class="btn btn-primary">CERCA</button>
+                    <button type="reset" class="btn btn-danger">RESET</button>
+                </div>
+            </form>
+        </div>
+        <div class="container-fluid d-flex justify-content-center gap-1 m-auto row ">
+            <?php foreach ($classi as $singleClass =>  $filteredClasses) { ?>
+                <div class="text-center">
+                    <h1><?= $singleClass ?></h1>
+                </div>
+                <?php foreach ($filteredClasses as $singleClass) { ?>
+                    <div class="col-2 mb-5">
+                        <div class="card" style="max-width: 17rem;">
+                            <img class="card-img-top" src="https://robohash.org/ <?= $singleClass["nome"] ?>"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <p><strong>ID:</strong><?= $singleClass["id"] ?></p>
+                                <p><strong>NOME:</strong><?= $singleClass["nome"] ?></p>
+                                <p><strong>COGNOME:</strong><?= $singleClass["cognome"] ?></p>
+                                <p><strong>ANNI:</strong><?= $singleClass["anni"] ?></p>
+                                <p><strong>VOTO MEDIO: <?= $singleClass["voto_medio"] ?></strong></p>
+                                <p><strong>LINGUAGGIO PREFERITO:</strong><?= $singleClass["linguaggio_preferito"] ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
             <?php } ?>
         </div>
     </main>
