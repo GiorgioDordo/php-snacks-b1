@@ -22,5 +22,6 @@ function isPalindrome($word)
     }
     return $reversedWord;
 }
+
 print_r(isPalindrome("Marco"));
 ?>
