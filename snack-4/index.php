@@ -243,20 +243,22 @@ $filteredClasses;
 if (isset($_GET["linguaggio"]) && !empty($_GET["linguaggio"])) {
     $filteredClasses = [];
 
-    foreach ($classi as $singleClass => $filteredClasses) {
-        foreach ($filteredClasses as $singleClass) {
-            if (str_contains(strtolower($singleClass["linguaggio_preferito"]), strtolower($_GET["linguaggio"]))) {
-                $filteredClasses[] = $singleClass;
-            }
+    foreach ($filteredClasses as $singleClass) {
+        if (str_contains(strtolower($singleClass["linguaggio_preferito"]), strtolower($_GET["linguaggio"]))) {
+            $filteredClasses[] = $singleClass;
         }
     }
 } else {
     $filteredClasses = $classi;
 }
 
-$averageVote = array_filter($classi["Classe 1A"], function ($positive) {
-    return $positive["voto_medio"] > 6;
-});
+foreach ($classi as $singleClass =>  $inSingleClass) {
+    foreach ($inSingleClass as $class) {
+        $averageVote = array_filter($class, function ($positive) {
+            return $positive["voto_medio"] > 6;
+        });
+    }
+}
 
 print_r($averageVote);
 ?>
@@ -279,7 +281,8 @@ print_r($averageVote);
             <form action="index.php" method="GET">
                 <div class="mb-1">
                     <span>Linguaggio di programmazione</span>
-                    <input class="form-control" type="text" id="linguaggio" name="linguaggio">
+                    <input class="form-control" type="text" id="linguaggio" name="linguaggio"
+                        value="<?php if (isset($_GET["linguaggio"])) echo $_GET["linguaggio"] ?>">
                 </div>
                 <div>
                     <button type="submit" class="btn btn-primary">CERCA</button>
